@@ -90,10 +90,6 @@ client.on('message', function(message)
       break;
 
     case "WANNA FUCK?":
-      message.channel.send("Yeah?");
-      break;
-
-    case "WANNA FUCK?":
       message.channel.send("You bet!");
       break;
 
