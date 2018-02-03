@@ -6,7 +6,7 @@ var clopList;
 var emoji;
 var msg;
 
-client.login('TOKEN');
+client.login('Token');
 
 function setClopList(data)
 {
@@ -56,7 +56,13 @@ client.on('guildMemberAdd', function(member)
     `Welcome to Apogee's puss, slide right in ${member}`,
     `I will eat your ass ponyo ${member}`,
     `Feel free to be as lewd as possible ${member}`,
-    `Welcome to the motherfuckin tilt-a-whirl ${member}`];
+    `Welcome to the motherfuckin tilt-a-whirl ${member}`
+    `Yeet fam ${member}`
+    `Go ahead and have some fun ${member}`
+    `You better buff Glaz ${member}`
+    `NANI!?! OwO ${member}`
+    `Oh lord ${member} is here`
+    `Gonna shoot you if you touch Apogee ${member}`];
   channel.send(welcome[Math.floor(Math.random() * welcome.length)]);
 });
 
@@ -108,7 +114,7 @@ client.on('message', function(message)
     case "PONYO":
       emoji = client.emojis.find("name", "Ponyo");
       message.channel.send(`Heres a pone being silly ${emoji}`);
-      break;  
+      break;
 
     default:
       if(message.content.toUpperCase().startsWith("#RULE34")) //If the message starts with "rule34"
@@ -119,7 +125,7 @@ client.on('message', function(message)
         }
         else
         {
-          message.channel.send("This channel isn't NSFW,do you want our little fillies to be traumatized ?");
+          message.channel.send("This channel isn't NSFW, do you want our little fillies to be traumatized ?");
         }
       }
       break;
