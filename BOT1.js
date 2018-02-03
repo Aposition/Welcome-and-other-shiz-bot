@@ -62,7 +62,10 @@ client.on('guildMemberAdd', function(member)
     `You better buff Glaz ${member}`,
     `NANI!?! OwO ${member}`,
     `Oh lord ${member} is here`,
-    `Gonna shoot you if you touch Apogee ${member}`];
+    `Gonna shoot you if you touch Apogee ${member}`,
+    `Welcome, if you're feeling scuicidal you've come to the right place, cause I wanna fucking kill myself too *flips chair* ${member}`,
+    `You are bae ${member}`,
+    `Peep my tag ${member}`];
   channel.send(welcome[Math.floor(Math.random() * welcome.length)]);
 });
 
