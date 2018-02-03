@@ -105,6 +105,11 @@ client.on('message', function(message)
       message.channel.send(`Super cuteness for you ${emoji}`);
       break;
 
+    case "PONYO":
+      emoji = client.emojis.find("name", "Ponyo");
+      message.channel.send(`Heres a pone being silly ${emoji}`);
+      break;  
+
     default:
       if(message.content.toUpperCase().startsWith("#RULE34")) //If the message starts with "rule34"
       {
