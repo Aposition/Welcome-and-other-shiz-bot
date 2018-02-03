@@ -14,46 +14,47 @@ client.on('ready', () => {
 
 client.on('message', function(message)
 {
-    if(message.content.toUpperCase() == "#KMS")
-    {
+  switch(message.content.toUpperCase())
+  {
+    case "#KMS":
       const emoji = client.emojis.find("name", "TheCobain");
-      message.channel.send(`Here's a gun, you know what to do ${emoji}` )
-    }
+      message.channel.send(`Here's a gun, you know what to do ${emoji}`);
+      break;
 
-    if(message.content.toUpperCase() == "#SEXYPON")
-	  {
-   		const emoji = client.emojis.find("name", "NSFW");
-  	  message.channel.send(`Here, have this ${emoji}`)
-		}
+    case "#SEXYPON":
+      const emoji = client.emojis.find("name", "NSFW");
+      message.channel.send(`Here, have this ${emoji}`);
+      break;
 
-    if(message.content.toUpperCase() == "FUCKME")
-    {
-      message.channel.send("__When, where, and how? But most importantly, WHY????__")
-    }
+    case "FUCKME":
+      message.channel.send("__When, where, and how? But most importantly, WHY????__");
+      break;
 
-   	if(message.content.toUpperCase() == "APOGEE")
-    {
+    case "APOGEE":
+      message.channel.send("Yeah?");
+      break;
+
+    case "WANNA FUCK?":
       message.channel.send("Yeah?")
-    }
+      break;
 
-    if(message.content.toUpperCase() == "WANNA FUCK?")
-    {
-       message.channel.send("You bet!")
-    }
+    case "WANNA FUCK?":
+      message.channel.send("You bet!");
+      break;
 
-    if(message.content.toUpperCase() == "SPREAD IT THEN.")
-    {
-      message.channel.send("Alright. *Spreads pussy*")
-    }
+    case "SPREAD IT THEN.":
+      message.channel.send("Alright. *Spreads pussy*");
 
-    if(message.content.toUpperCase() == "#WEWLAD")
-    {
+    case "#WEWLAD":
       const emoji = client.emojis.find("name", "TheRevenge");
-      message.channel.send(`The wewest of the wew ${emoji}`)
-    }
-      if(message.content.toUpperCase() == "DERPY")
-    {
+      message.channel.send(`The wewest of the wew ${emoji}`);
+      break;
+
+    case "DERPY":
       const emoji = client.emojis.find("name", "Thecute");
-      message.channel.send(`Super cuteness for you ${emoji}`)
-    }
+      message.channel.send(`Super cuteness for you ${emoji}`);
+
+    default:
+      break;
+  }
 });
