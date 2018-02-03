@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-client.login('BOT TOKEN');
+var emoji = undefined;
+
+client.login('MTY2NjUyNjg2MjY2MTM4NjI1.DUXJjQ.nirmk7cimcHZ_x5mcJXqfBfbwJo');
 
 client.on('ready', () => {
   console.log('Is running nigga!');
@@ -17,12 +19,12 @@ client.on('message', function(message)
   switch(message.content.toUpperCase())
   {
     case "#KMS":
-      const emoji = client.emojis.find("name", "TheCobain");
+      emoji = client.emojis.find("name", "TheCobain");
       message.channel.send(`Here's a gun, you know what to do ${emoji}`);
       break;
 
     case "#SEXYPON":
-      const emoji = client.emojis.find("name", "NSFW");
+      emoji = client.emojis.find("name", "NSFW");
       message.channel.send(`Here, have this ${emoji}`);
       break;
 
@@ -44,15 +46,17 @@ client.on('message', function(message)
 
     case "SPREAD IT THEN.":
       message.channel.send("Alright. *Spreads pussy*");
+      break;
 
     case "#WEWLAD":
-      const emoji = client.emojis.find("name", "TheRevenge");
+      emoji = client.emojis.find("name", "TheRevenge");
       message.channel.send(`The wewest of the wew ${emoji}`);
       break;
 
     case "DERPY":
-      const emoji = client.emojis.find("name", "Thecute");
+      emoji = client.emojis.find("name", "Thecute");
       message.channel.send(`Super cuteness for you ${emoji}`);
+      break;
 
     default:
       break;
