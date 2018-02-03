@@ -56,12 +56,12 @@ client.on('guildMemberAdd', function(member)
     `Welcome to Apogee's puss, slide right in ${member}`,
     `I will eat your ass ponyo ${member}`,
     `Feel free to be as lewd as possible ${member}`,
-    `Welcome to the motherfuckin tilt-a-whirl ${member}`
-    `Yeet fam ${member}`
-    `Go ahead and have some fun ${member}`
-    `You better buff Glaz ${member}`
-    `NANI!?! OwO ${member}`
-    `Oh lord ${member} is here`
+    `Welcome to the motherfuckin tilt-a-whirl ${member}`,
+    `Yeet fam ${member}`,
+    `Go ahead and have some fun ${member}`,
+    `You better buff Glaz ${member}`,
+    `NANI!?! OwO ${member}`,
+    `Oh lord ${member} is here`,
     `Gonna shoot you if you touch Apogee ${member}`];
   channel.send(welcome[Math.floor(Math.random() * welcome.length)]);
 });
