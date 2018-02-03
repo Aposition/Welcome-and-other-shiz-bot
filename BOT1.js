@@ -6,7 +6,7 @@ var clopList;
 var emoji;
 var msg;
 
-client.login('MTY2NjUyNjg2MjY2MTM4NjI1.DUXJjQ.nirmk7cimcHZ_x5mcJXqfBfbwJo');
+client.login('TOKEN');
 
 function setClopList(data)
 {
