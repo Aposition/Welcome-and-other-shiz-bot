@@ -6,7 +6,7 @@ var clopList;
 var emoji;
 var msg;
 
-client.login('Token');
+client.login("Token");
 
 function setClopList(data)
 {
@@ -71,8 +71,9 @@ client.on('guildMemberAdd', function(member)
 
 client.on('message', function(message)
 {
-  msg = message;
-  switch(message.content.toUpperCase())
+  const args = message.content.trim().split(/ +/g);
+  const command = args.shift().toUpperCase();
+  switch(command)
   {
     case "#KMS":
       emoji = client.emojis.find("name", "TheCobain");
@@ -115,18 +116,45 @@ client.on('message', function(message)
       message.channel.send(`Heres a pone being silly ${emoji}`);
       break;
 
-    default:
-      if(message.content.toUpperCase().startsWith("#RULE34")) //If the message starts with "rule34"
+    case "#RULE34":
+      if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
       {
-        if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
+        getClopList(args[0]); //call getClopList with the given tags and the message object
+      }
+      else
+      {
+        message.channel.send("This channel isn't NSFW, do you want our little fillies to be traumatized ?");
+      }
+      break;
+
+    case "SLAP":
+      if(args[0])
+      {
+        if(args[0] != message.author)
         {
-          getClopList(message.content.substring(8)); //call getClopList with the given tags and the message object
-        }
-        else
-        {
-          message.channel.send("This channel isn't NSFW, do you want our little fillies to be traumatized ?");
+          var random = (Math.floor(Math.random() * 6) + 1);
+          message.channel.send("Rolled a " + random);
+          if(random > 4)
+          {
+            message.channel.send(message.author.username + " succeeded to slap " + args[0]);
+          }
+          else if(random < 2)
+          {
+            message.channel.send(message.author.username + " missed so badly " + args[0] + " that he fell");
+          }
+          else
+          {
+            message.channel.send(message.author.username + " didn't succeed to slap " + args[0]);
+          }
         }
       }
+      else
+      {
+        message.reply("Who are you trying to slap lmao");
+      }
+      break;
+
+    default:
       break;
   }
 });
