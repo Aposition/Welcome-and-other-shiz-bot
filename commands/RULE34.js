@@ -2,14 +2,16 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.run = function(client, message, args)
 {
-    if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
-    {
-      getClopList(args[0], message); //call getClopList with the given tags and the message object
-    }
-    else
-    {
-      message.channel.send("This channel isn't NSFW, do you want our little fillies to be traumatized ?");
-    }
+  const args = message.content.trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+  if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
+  {
+    getClopList(args[0], message); //call getClopList with the given tags and the message object
+  }
+  else
+  {
+    message.channel.send("This channel isn't NSFW, do you want our little fillies to be traumatized ?");
+  }
 }
 
 function setClopList(data, message)
