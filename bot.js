@@ -37,7 +37,8 @@ client.on('message', function(message)
   const command = args.shift().toUpperCase();
   try
   {
-    var commandFile = require(`./commands/${command}`);
+    console.log(command)
+    var commandFile = require(`./commands/SUCC.js`);
     commandFile.run(client,message);
   }
   catch(err)
@@ -47,10 +48,6 @@ client.on('message', function(message)
 
   switch(command)
   {
-    case "#KMS":
-      var emoji = client.emojis.find("name", "TheCobain");
-      message.channel.send(`Here's a gun, you know what to do ${emoji}`);
-      break;
 
     case "#SEXYPON":
       var emoji = client.emojis.find("name", "NSFW");
@@ -87,6 +84,11 @@ client.on('message', function(message)
       var emoji = client.emojis.find("name", "Ponyo");
       message.channel.send(`Heres a pone being silly ${emoji}`);
       break;
+
+   case "AYYBB":
+     var emoji = client.emojis.find("name", "EyyBby");
+     message.channel.send(`Ayyyyyyyyyy ${emoji}`);
+     break;
 
     default:
       break;
