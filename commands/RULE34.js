@@ -1,6 +1,6 @@
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-exports.run = function(client, message, args)
+exports.run = function(client, message)
 {
   const args = message.content.trim().split(/ +/g);
   const command = args.shift().toLowerCase();

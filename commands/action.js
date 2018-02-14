@@ -8,15 +8,15 @@ exports.run = function(client, message)
     {
       var random = (Math.floor(Math.random() * 6) + 1);
       message.channel.send("Rolled a " + random);
-      if(random > 4)
+      if(random > 3) //6,5 or 4
       {
         message.channel.send(message.author.username + " succeeded to " + command  + " " + message.content.substring(command.length + 1));
       }
-      else if(random < 2)
+      else if(random < 2) //1
       {
         message.channel.send(message.author.username + " missed so badly " + message.content.substring(command.length + 1) + " that he fell and got " + command + "ed back");
       }
-      else
+      else //2 or 3
       {
         message.channel.send(message.author.username + " didn't succeed to " + command + " " + message.content.substring(command.length + 1));
       }
