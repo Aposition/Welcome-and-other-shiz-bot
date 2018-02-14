@@ -2,7 +2,7 @@ const fs = require("fs");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.login("Token");
+client.login("NDA5MTE3MzE5MzkwODIyNDAx.DWY-yw.5m-yz6wrUyZWzQj9zCYfqNuZxSg");
 
 client.on('ready', function()
 {
@@ -37,8 +37,7 @@ client.on('message', function(message)
   const command = args.shift().toUpperCase();
   try
   {
-    console.log(command)
-    var commandFile = require(`./commands/SUCC.js`);
+    var commandFile = require(`./commands/${command}`);
     commandFile.run(client,message);
   }
   catch(err)
