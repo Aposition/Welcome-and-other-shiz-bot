@@ -6,7 +6,7 @@ exports.run = function(client, message)
   {
     if(args[0] != message.author)
     {
-      var random = (Math.floor(Math.random() * 6) + 1);
+      var random = (Math.floor(Math.random() * 10) + 1);
       message.channel.send("Rolled a " + random);
       if(random > 3) //6,5 or 4
       {
@@ -19,6 +19,10 @@ exports.run = function(client, message)
       else //2 or 3
       {
         message.channel.send(message.author.username + " didn't succeed to " + command + " " + message.content.substring(command.length + 1));
+      }
+      else if(random < 6)
+      {
+        message.channel.send(message.author.username + "succeed to" + args +  "so good that he died");
       }
     }
   }
