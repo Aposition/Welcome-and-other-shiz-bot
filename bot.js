@@ -2,7 +2,7 @@ const fs = require("fs");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.login("Token");
+client.login("NDA5MTE3MzE5MzkwODIyNDAx.DWY-yw.5m-yz6wrUyZWzQj9zCYfqNuZxSg");
 
 client.on('ready', function()
 {
@@ -29,25 +29,54 @@ client.on('guildMemberAdd', function(member)
     `You are bae ${member}`,
     `Peep my tag ${member}`];
   channel.send(welcome[Math.floor(Math.random() * welcome.length)]);
+
+  var roles = member.guild.roles;
+  for(var[key, role] of roles)
+  {
+    if(role.name.toUpperCase() === "PONY LOVER")
+    {
+      member.addRole(role);
+    }
+    if(role.name.toUpperCase() === "NO NSFW VIEWING")
+    {
+      member.addRole(role);
+    }
+  }
+
 });
 
 client.on('message', function(message)
 {
+  if (message.author.id === client.user.id) return; //If it's the bot talking
   const args = message.content.trim().split(/ +/g);
   const command = args.shift().toUpperCase();
   try
   {
-    console.log(command)
-    var commandFile = require(`./commands/SUCC.js`);
+    var commandFile = require(`./commands/${command}.js`);
     commandFile.run(client,message);
   }
-  catch(err)
-  {
-
-  }
+  catch(err) {}
 
   switch(command)
   {
+    case "BECOME":
+      if(args[0] === "CLOPPER")
+      {
+        var roles = message.member.guild.roles;
+        for(var[key, role] of roles)
+        {
+          if(role.name.toUpperCase() === "CLOPPERS")
+          {
+            message.member.addRole(role);
+          }
+          if(role.name.toUpperCase() === "NO NSFW VIEWING")
+          {
+            message.member.removeRole(role);
+          }
+        }
+        message.reply("You are now a clopper ( ͡° ͜ʖ ͡°)")
+      }
+      break;
 
     case "#SEXYPON":
       var emoji = client.emojis.find("name", "NSFW");

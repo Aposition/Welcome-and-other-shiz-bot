@@ -24,6 +24,6 @@ exports.run = function(client, message)
   }
   else
   {
-    message.reply("Who are you trying to slap lmao");
+    message.reply("Who are you trying to " + command + " lmao");
   }
 }
