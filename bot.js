@@ -60,7 +60,7 @@ client.on('message', function(message)
   switch(command)
   {
     case "BECOME":
-      if(args[0] === "CLOPPER")
+      if(args[0].toUpperCase() === "CLOPPER")
       {
         var roles = message.member.guild.roles;
         for(var[key, role] of roles)
