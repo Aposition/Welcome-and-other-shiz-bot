@@ -10,15 +10,24 @@ exports.run = function(client, message)
       message.channel.send("Rolled a " + random);
       if(random > 3) //6,5 or 4
       {
-        message.channel.send(message.member.nickname + " succeeded to " + command  + " " + message.content.substring(command.length + 1));
+        if(message.member.nickname === null)
+          message.channel.send(message.author.username + " succeeded to " + command  + " " + message.content.substring(command.length + 1));
+        else
+          message.channel.send(message.member.nickname + " succeeded to " + command  + " " + message.content.substring(command.length + 1));
       }
       else if(random < 2) //1
       {
-        message.channel.send(message.member.nickname + " missed so badly " + message.content.substring(command.length + 1) + " that he fell and got " + command + "ed back");
+        if(message.member.nickname === null)
+          message.channel.send(message.author.username + " missed so badly " + message.content.substring(command.length + 1) + " that he fell and got " + command + "ed back");
+        else
+          message.channel.send(message.member.nickname + " missed so badly " + message.content.substring(command.length + 1) + " that he fell and got " + command + "ed back");
       }
       else //2 or 3
       {
-        message.channel.send(message.member.nickname + " didn't succeed to " + command + " " + message.content.substring(command.length + 1));
+        if(message.member.nickname === null)
+          message.channel.send(message.author.username + " didn't succeed to " + command + " " + message.content.substring(command.length + 1));
+        else
+          message.channel.send(message.member.nickname + " didn't succeed to " + command + " " + message.content.substring(command.length + 1));
       }
     }
   }
