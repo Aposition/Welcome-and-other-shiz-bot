@@ -1,4 +1,3 @@
-
 exports.run = function(client, message)
 {
   var action = require('./action.js');
