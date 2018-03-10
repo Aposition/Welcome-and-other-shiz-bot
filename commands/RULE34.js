@@ -29,7 +29,6 @@ function setClopList(data, message)
     message.channel.send("No porn could be found with your stupid ass tag");
     return;
   }
-  message.channel.send("Here you go, some not so family friendly porn");
   message.channel.send(clopList[Math.floor(Math.random() * clopList.length)]); //Send a random element of the array
   return true;
 }

@@ -6,7 +6,7 @@ exports.run = function(client, message)
   const command = args.shift().toLowerCase();
   if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
   {
-    getClopList(message); //call getClopList with the given tags and the message object
+    getClopList(args[0], message); //call getClopList with the given tags and the message object
   }
   else
   {
@@ -17,27 +17,47 @@ exports.run = function(client, message)
 function setClopList(data, message)
 {
   var clopList = data.split("\"full\""); //Split the differents images found in the clopList array
-  for(var i = 1; i <= clopList.length - 1; i++) //For every element of the array
+  var length = clopList.length
+  for(var i = 1; i <= length - 1; i++) //For every element of the array
   {
+    var start_extension = clopList[i].indexOf(".");
+    start_extension = clopList[i].indexOf(".", start_extension + 1);
+    var end_extension = clopList[i].indexOf("\"", start_extension);
+    extension = clopList[i].substring(start_extension + 1, end_extension); //Replace the whole text by just the URL
     var start_url = clopList[i].indexOf("\"full\"") + 5; //Find the start of the URL
-    var end_url = clopList[i].indexOf("\"},"); //Find the end of the URL
+    var end_url = end_extension; //Find the end of the URL
+    if(extension === "mp3" || extension === "mp4" || extension === "webm")
+    {
+      clopList.splice(i, 1);
+      i--;
+      length--;
+      continue;
+    }
     clopList[i] = clopList[i].substring(start_url,end_url); //Replace the whole text by just the URL
   }
+
   clopList.shift(); //Remove the first element
   if(clopList[0] === undefined)
   {
-    message.channel.send("No porn could be found (you should probably tell @Gaiben#7736 about it)");
+    message.channel.send("No porn could be found with your stupid ass tag");
     return;
   }
-  message.channel.send("Here you go, some not so family friendly porn");
+  console.log("https://" + clopList[Math.floor(Math.random() * clopList.length)]);
   message.channel.send("https://" + clopList[Math.floor(Math.random() * clopList.length)]); //Send a random element of the array
   return true;
 }
 
-function getClopList(message)
+function getClopList(tag, message)
 {
   var r34 = new XMLHttpRequest();
-  r34.open("GET","https://derpibooru.org/tags/explicit.json?key=8PJq9sL9kzLzrYe1ycxh", true);
+  if(tag === undefined)
+  {
+    r34.open("GET","https://derpibooru.org/tags/explicit.json?key=8PJq9sL9kzLzrYe1ycxh", true);
+  }
+  else
+  {
+    r34.open("GET","https://derpibooru.org/search.json?key=8PJq9sL9kzLzrYe1ycxh&q=" + tag, true);
+  }
   r34.send(null); //send a GET request to the URL above
   r34.addEventListener("readystatechange", function()
   {
