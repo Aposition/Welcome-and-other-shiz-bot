@@ -6,7 +6,9 @@ exports.run = function(client, message)
   const command = args.shift().toLowerCase();
   if(message.channel.nsfw || message.channel.type === "dm") //If the channel is NSFW or was send in PM
   {
-    getClopList(args[0], message); //call getClopList with the given tags and the message object
+    var tags = message.content.substring(7);
+    var tags = tags.replace(" ","%20");
+    getClopList(tags, message); //call getClopList with the given tags and the message object
   }
   else
   {
